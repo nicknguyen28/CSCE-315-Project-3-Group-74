@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+   <link rel="stylesheet" type="text/css" href="/views/index.css" id="index_style"></link>
+   <title><%= title %></title>
+</head>
+<body>
+   <% if(!isAuthenticated) { %>
+      <h1>Welcome to Rev's</h1>
+      <a href="/login/"><img src="https://api.dineoncampus.com/files/images/50e9b78d-707c-4cda-9cde-366d35401581.png"></a>
+      <p>
+         Press the Image to Login
+      </p>
+   <% } else { %>
+   <a class="logout" href="/logout/">Logout</a>
+   <h1>Choose A GUI</h1>
+   <div style="display: block">
+      <p>
+      <% if(user.nickname == "blakelunnn" || user.nickname == "s2081459"|| user.nickname == "alexjamesgarza") { %>
+         <a class="guibutton" href="/manager/">Manager</a>
+         <br>
+         <br>
+         <br>
+         <% } %>
+         <a class="guibutton" href="/server/">Server</a>
+         <br>
+         <br>
+         <br>
+         <a class="guibutton" href="/customer/">Customer</a>
+      </p>
+   </div>
+   <% } %>
+</body>
+<script src="/views/indexFunctions.js"> </script>
+</html>

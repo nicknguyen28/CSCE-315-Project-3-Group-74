@@ -1,0 +1,348 @@
+p {
+  text-align: right;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.tab {
+    overflow: hidden;
+    text-align: center;
+    word-break: break-word;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.tab button {
+    color: maroon;
+    font-size: 1em;
+    background-color: white;
+    width: 16%;
+    height: 4em;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: lightgray;
+}
+
+.tab button.active {
+    color: white;
+    background-color: maroon;
+}
+
+.tabcontent {
+    display: none;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: center;
+}
+
+.toDoList {
+    width: 100%;
+    height: 36.3em;
+    resize: none;
+    float: left;
+    font-size: 1em;
+    border: 1px solid maroon;
+}
+.toDoListDiv {
+    text-align: center;
+    float: left;
+    padding: 2vh 2vw;
+    width:10%;
+}
+
+.notifications {
+    width: 85%;
+    height: 42.8em;
+    resize: none;
+    text-align: center;
+    border: 1px solid maroon;
+    background-color: white;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.notificationItem {
+    font-size: 1em;
+    flex-basis: 20%;
+    vertical-align: middle;
+    padding: 0.5%;
+    word-break: break-word;
+}
+
+.notifColBox {
+    width: 85%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    overflow-x: none;
+    overflow-y: scroll;
+    word-break: break-word;
+}
+
+.notifColBox::-webkit-scrollbar { 
+    background: transparent;
+}
+
+.notifColNames {
+    flex-basis: 20%;
+    font-size: 1em;
+    text-align: center;
+    border-width: 1px;
+    border-color: maroon;
+    background-color: darkgray;
+    word-wrap: break-word;
+    padding: 0.5%;
+}
+
+.subbutton {
+    color: white;
+    font-size: 1em;
+    background-color: maroon;
+    width: 47.5%;
+    height: 4em;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.subbutton:hover {
+    background-color: rgb(75, 0, 0);
+}
+
+.subbutton:active {
+    background-color: black;
+    transition: 0s;
+}
+
+.scrollArea {
+    border: 1px solid maroon;
+    width: 44%;
+    height: 40.7em;
+    overflow-y: scroll;
+}
+
+.attributeName {
+    font-size: 1em;
+    width: 46%;
+    height: 2.75em;
+    margin-top: 0.5em;
+    border-color: maroon;
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+}
+
+.invTextField {
+    font-size: 1em;
+    width: 46%;
+    height: 2.75em;
+    margin-top: 0.5em;
+    border-color: maroon;
+    text-align: center;
+}
+
+.menuTextField {
+    font-size: 1em;
+    width: 46%;
+    height: 2.75em;
+    margin-top: 0.5em;
+    border-color: maroon;
+    text-align: center;
+}
+
+.invAndMenuFieldGroup {
+    float: right;
+    width: 40%;
+}
+
+.itemButton {
+    font-size: 1em;
+    width: 100%;
+    height: fit-content;
+    padding: 1%;
+}
+
+.reports {
+    overflow: hidden;
+    text-align: center;
+    word-break: break-word;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.reports button {
+    color: maroon;
+    font-size: 1em;
+    background-color: white;
+    width: 31%;
+    height: 4em;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reports button:hover {
+    background-color: lightgray;
+}
+
+.reports button.active {
+    color: white;
+    background-color: maroon;
+}
+
+.reportContent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.reportBox {
+    font-size: 1em;
+    height: 30em;
+    width: 81.5%;
+    border: 1px solid maroon;
+    resize: none;
+    background-color: white;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.reportColumnNamesDiv {
+    width: 81.5%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    overflow-x: none;
+    overflow-y: scroll;
+    word-break: break-word;
+}
+
+.reportColumnNamesDiv::-webkit-scrollbar { 
+    background: transparent;
+}
+
+.reportColumnNames {
+    flex-basis: 33.33%;
+    font-size: 1em;
+    text-align: center;
+    border-width: 1px;
+    border-color: maroon;
+    background-color: darkgray;
+    word-wrap: break-word;
+    padding: 0.5%;
+}
+
+.dateTimeBox {
+    font-size: 0.9em;
+    width: 14%;
+    height: 3.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-color: maroon;
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+    resize: none;
+    vertical-align: middle;
+    display:inline-block;
+}
+
+.dateTimeEntryBox {
+    font-size: 1em;
+    width: 14%;
+    height: 2.8em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-color: maroon;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.enterButton {
+    color: white;
+    font-size: 1em;
+    background-color: maroon;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.2s;
+    float: right;
+    height: 7.4em;
+    width: 50%;
+    margin-right: 6%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.enterButton:hover {
+    background-color: rgb(75, 0, 0);
+}
+
+.enterButton:active {
+    background-color: black;
+    transition: 0s;
+}
+
+.transactionsBox {
+    border: 1px solid maroon;
+    width: 100%;
+    height: 41em;
+    overflow-y: scroll;
+}
+
+.transactionsName {
+    font-size: 1em;
+    width: 100%;
+    height: 3em;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.accessDiv {
+    overflow: hidden;
+    text-align: center;
+    word-break: break-word;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+.fontButton {
+    color: black;
+    font-size: 1em;
+    background-color: rgb(238, 238, 238);
+    width: 20%;
+    height: 4em;
+    border-color: maroon;
+    transition: 0.2s;
+}
+
+.accessButton {
+    color: white;
+    font-size: 1em;
+    background-color: maroon;
+    width: 20%;
+    height: 4em;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.accessButton:hover {
+    background-color: rgb(75, 0, 0);
+}
+
+.accessButton:active {
+    background-color: black;
+    transition: 0s;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+   <link rel="stylesheet" type="text/css" href="/views/server.css" id="server_style"></link>
+   <title>Server GUI</title>
+   <p>
+      <a href="/logout/">Logout</a>
+      <br>
+      <a href="/login/">Home Page</a>
+   </p>
+</head>
+<body onload="javascript:getOrderId()">
+
+   <!-- Indicates Server Side -->
+   <div id = "side" hidden = "hidden">Server</div>
+
+   <!-- Creates category buttons -->
+   <% for (var i = 0; i < data.categories.length; i++) {%>
+      <!-- Creates buttons 120px below the last -->
+      <button class = "button menu categorybutton <%= i %>" onclick = "enableMenuButtons(<%= i %>)" style = "top : <%=120*i%>px;">
+         <%= data.categories[i] %>
+      </button>
+   <% } %>
+
+   <button class = "menu misc accessibility" onclick = "Accessibility()"> Accessibility</button>
+
+   <div class= "access misc translate" id="google_translate_element" hidden = "hidden" ></div>
+   <button class = "button access home" onclick = "goToMenu()" hidden = "hidden">Back to Home</button>
+   <button class = "button access toggletext" id = "toggletext" hidden = "hidden" onclick ="toggleFontSize()">Magnify Text</button>
+   <button class = "button access togglenarrator" id = "togglenarrator" hidden = "hidden" onclick ="toggleNarrator()">Enable Narrator</button>
+   <img src="https://i.ibb.co/nzy069Z/translate.png" class = "access misc translateimg" id="translateimg" hidden = "hidden">
+         <script type="text/javascript">
+         function googleTranslateElementInit() {
+           new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+         }
+         </script>
+         
+         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+   <!-- Rectangle to hold order -->
+   <div class = "scrollarea menu orderbox" id = "orderbox" style="width:300px;height:525px;border:2px solid maroon;top: 110px; left: 1000px;  background-color: white; position: absolute;" ></div>
+   <div class = "scrollarea menu removebox" id = "removebox"  style="width:70px;height:525px; border-top:2px solid maroon;top: 110px; left: 1230px; background-color:white;"></div>
+   
+   
+   <!-- Tender Button -->
+   <button class = 'button menu misc tender' id = 'tender' style = "position: absolute; left: 1180px; top: 650px;" >Tender</button>
+
+   <!-- Cancel Button -->
+   <button class = "button menu misc cancel" id = 'cancel' style = "position: absolute; left: 850px; top: 575px;" onclick = "clearOrder()"> Cancel</button>
+
+   <!--  Creates menu buttons  -->
+   <div class = "flex-container1" id = "menubox">
+
+   </div>   
+
+   <div>
+      <div class = "textbox menu misc time" style = "left: 1000px; top: 10px; position: absolute;">Loading...</div>
+      <!-- <div class = "textbox" style = "left: 1180px; top: 10px;position: absolute;">Employee</div> -->
+      <select class = "textbox menu misc staffselect" id="staffselect" style = "left: 1180px; top: 10px;position: absolute;">
+         <option selected="">Loading...</option>
+       </select>
+      <div class = "textbox misc menu" id="orderId" style = "left: 1000px;top: 60px;">Order ID</div>
+      <input class="textbox misc menu" id="custname"style = "left: 1180px;top: 60px;" placeholder="Insert Name">
+      
+      <div class = "textbox menu misc costbox" id = "costbox" style = "left:1000px; top:650px; height:50px; position: absolute;">Total: $0</div>
+   </div>
+
+
+</body>
+<script src="/views/functions.js"> </script>

@@ -1,0 +1,55 @@
+.logout {
+    float: right;
+    text-decoration: underline;
+}
+
+* {
+    text-decoration: none;
+}
+
+body {
+    background-color: #ffdab8;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5cm;
+    color: maroon;
+    margin-bottom: 0cm;
+}
+
+p{
+    text-align: center;
+    color: maroon;
+    font-size: 1cm;
+    font-family: "Papyrus", fantasy, times;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0cm;
+    width: 400px;
+    height: 350px;
+}
+
+.guibutton {
+    display: inline-block;
+    color: white;
+    font-size: 1em;
+    background-color: maroon;
+    width: 30%;
+    border-color: maroon;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 2%;
+}
+
+.guibutton:hover {
+    background-color: rgb(75, 0, 0);
+}
+
+.guibutton:active {
+    background-color: black;
+    transition: 0s;
+}

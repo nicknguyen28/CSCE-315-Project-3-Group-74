@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<head>
+   <link rel="stylesheet" type="text/css" href="/views/manager.css" id="manager_style"></link>
+   <title>Manager GUI</title>
+   <p>
+      <a href="/logout/">Logout</a>
+      <br>
+      <a href="/login/">Home Page</a>
+   </p>
+</head>
+<body>
+   <!-- Tab links -->
+   <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Home'); getNotifications(event)", id="homePage">Home</button>
+      <button class="tablinks" onclick="openTab(event, 'Inventory')">Inventory</button>
+      <button class="tablinks" onclick="openTab(event, 'Finance')">Finance</button>
+      <button class="tablinks" onclick="openTab(event, 'Transactions')">Transactions</button>
+      <button class="tablinks" onclick="openTab(event, 'Menu Items')">Menu Items</button>
+      <button class="tablinks" onclick="openTab(event, 'Accessibility')">Accessibility</button>
+   </div>
+
+   <!-- Tab content -->
+   <div>
+      <div class="toDoListDiv">
+         <img src="https://www.washingtonpost.com/graphics/2018/sports/colleges/basketball/march-madness-dancing-mascots/img/small-texasAM.gif" style="width:78%;height:70%">
+         <h4>TO-DO LIST</h4> 
+         <textarea id="toDoList" class="toDoList"></textarea>
+         <br><button style="margin-top:0.5em" onclick="saveList(event)">SAVE</button>
+         <button style="margin-top:0.5em" onclick="clearList(event)">CLEAR</button>
+      </div>
+   </div>
+
+   <div id="Home" class="tabcontent">
+      <div readonly class="notifColBox">
+         <button class="notifColNames">ID</button>
+         <button class="notifColNames">NAME</button>
+         <button class="notifColNames">DATE</button>
+         <button class="notifColNames">TIME</button>
+         <button class="notifColNames">MESSAGE</button>
+      </div>
+      <div readonly class="notifications" id="notifications"></div>
+   </div>
+   
+   <div id="Inventory" class="tabcontent">
+      <div class="invAndMenuFieldGroup">
+         <div>
+            <input readonly value="ID" class="attributeName" onmouseover="narratorInput(event)">
+            <input class="invTextField" id="invID">
+         </div>
+         
+         <div>
+            <input readonly value="Name" class="attributeName">
+            <input class="invTextField" id="invName">
+         </div>
+
+         <div>
+            <input readonly value="Amount" class="attributeName">
+            <input class="invTextField" id="invAmount">
+         </div>
+
+         <div>
+            <input readonly value="Threshold" class="attributeName" style="margin-bottom: 0.5em;">
+            <input class="invTextField" id="invThreshold">
+         </div>
+         <button class="subbutton" onclick="removeItem(event)">REMOVE ITEM</button>
+         <button class="subbutton" onclick="updateItem(event)">UPDATE ITEM</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;width:44%;">
+         <button class="subbutton" onclick="addInventoryItems(event)" style="width: 100%;">ADD NEW ITEM</button>
+      </div>
+      <div class="scrollArea" id = "inventoryArea"></div>
+   </div>
+   
+   <div id="Finance" class="tabcontent" style="text-align:left">
+      <div class="reports">
+         <button class="reportTab" onclick="openReport(event, 'Sales')">Sales Report</button>
+         <button class="reportTab" onclick="openReport(event, 'Excess')">Excess Report</button>
+         <button class="reportTab" onclick="openReport(event, 'Restock')">Restock Report</button>
+      </div>
+
+      <div id="Sales" class="reportContent">
+         <div>
+            <button readonly class="dateTimeBox">Start Date (YYYY-MM-DD)</button>
+            <input class="dateTimeEntryBox" id="salesStartDate">
+            <button class="enterButton" onclick="getSalesReport(event)">ENTER</button>
+         </div>
+         <div>
+            <button readonly class="dateTimeBox">End Date (YYYY-MM-DD)</button>
+            <input class="dateTimeEntryBox" id="salesEndDate">
+         </div>
+         <div class="reportColumnNamesDiv">
+            <button class="reportColumnNames">NAME</button>
+            <button class="reportColumnNames">AMOUNT SOLD</button>
+            <button class="reportColumnNames">TOTAL SALES</button>
+         </div>
+         <div class="reportBox" id="salesReportBox"></div>
+      </div>
+      <div id="Excess" class="reportContent">
+         <div>
+            <button readonly class="dateTimeBox">Start Date (YYYY-MM-DD)</button>
+            <input class="dateTimeEntryBox" id="excessStartDate">
+            <button class="enterButton" onclick="getExcessReport(event)">ENTER</button>
+         </div>
+         <div>
+            <button readonly class="dateTimeBox">Start Time (HH:MM:SS) (OPTIONAL)</button>
+            <input class="dateTimeEntryBox" id="excessStartTime">
+         </div>
+         <div class="reportColumnNamesDiv">
+            <button class="reportColumnNames" style="flex-basis: 50%;">ID</button>
+            <button class="reportColumnNames" style="flex-basis: 50%;">AMOUNT</button>
+         </div>
+         <div class="reportBox" id="excessReportBox"></div>
+      </div>
+      <div id="Restock" class="reportContent">
+         <button class="enterButton" style="width:81.15%;float:none;margin-right: 0%;" onclick="getRestockReport(event)">ENTER</button>
+         <div class="reportColumnNamesDiv" id = "invColumnNamesDiv">
+            <button class="reportColumnNames" style="flex-basis: 25%;">ID</button>
+            <button class="reportColumnNames" style="flex-basis: 25%;">NAME</button>
+            <button class="reportColumnNames" style="flex-basis: 25%;">AMOUNT</button>
+            <button class="reportColumnNames" style="flex-basis: 25%;">THRESHOLD</button>
+         </div>
+         <div class="reportBox" id="restockReportBox"></div>
+      </div>
+   </div>
+   
+   <div id="Transactions" class="tabcontent">
+      <div style="float:right;width:41%;margin-right:3%;">
+         <input readonly value="Inventory Transactions" class="transactionsName">
+         <div class="transactionsBox">         
+            <% for (const value of managerData.inventoryTransactionsMap.values()) {%>
+               <button class="itemButton" style="pointer-events: none;">
+                  #<%= value.orderid %>, ID: <%= value.stockid %>, Amount: <%= value.numitems %>, Total: $<%= value.pricetotal %>
+                  <br><div style="font-size: 0.75em;"><%= value.dateordered %></div>
+               </button>
+            <% } %>
+         </div>
+      </div>
+
+      <div style="float:left;width:41%">
+         <input readonly value="Customer Transactions" class="transactionsName">
+         <div class="transactionsBox">         
+            <% for (const value of managerData.transactionsMap.values()) {%>
+               <button class="itemButton" style="pointer-events: none;">
+                  #<%= value.transactionid %>, Items: <%= value.itemnum %>, Name: <%= value.custname %>, Employee: <%= value.staffid %>, Total: $<%= value.price %>
+                  <br><div style="font-size: 0.75em;"><%= value.time %></div>
+               </button>
+            <% } %>
+         </div>
+      </div>
+   </div>
+   
+   <div id="Menu Items" class="tabcontent">
+      <div class="invAndMenuFieldGroup">
+         <div>
+            <input readonly value="ID" class="attributeName">
+            <input class="menuTextField" id="menuID">
+         </div>
+         
+         <div>
+            <input readonly value="Name" class="attributeName">
+            <input class="menuTextField" id="menuName">
+         </div>
+
+         <div>
+            <input readonly value="Price" class="attributeName">
+            <input class="menuTextField" id="menuPrice">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 1" class="attributeName">
+            <input class="menuTextField" id="menuIng1">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 2" class="attributeName">
+            <input class="menuTextField" id="menuIng2">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 3" class="attributeName">
+            <input class="menuTextField" id="menuIng3">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 4" class="attributeName">
+            <input class="menuTextField" id="menuIng4">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 5" class="attributeName">
+            <input class="menuTextField" id="menuIng5">
+         </div>
+
+         <div>
+            <input readonly value="Ingredient 6" class="attributeName">
+            <input class="menuTextField" id="menuIng6">
+         </div>
+
+         <div>
+            <input readonly value="Image URL" class="attributeName">
+            <input class="menuTextField" id="url"> 
+         </div>
+
+         <div>
+            <input readonly value="Category" class="attributeName" style="margin-bottom: 0.5em;">
+            <input class="menuTextField" id="category">
+         </div>
+
+         <button class="subbutton" onclick="removeMenuItem(event)">REMOVE ITEM</button>
+         <button class="subbutton" onclick="updateMenuItem(event)">UPDATE ITEM</button>
+      </div>
+
+      <div style="display:flex;align-items:flex-start;width:44%;">
+         <button class="subbutton" onclick="addMenuItems(event)" style="width: 100%;">ADD NEW ITEM</button>
+      </div>
+      <div class="scrollArea" id = "menuArea"></div>
+   </div>
+   <div id="Accessibility" class="tabcontent">
+      <div class="accessDiv">
+         <button readonly class="fontButton">
+            Font-Size Adjustor<br>
+            <label style="align-self:flex-start;width:20%;padding-top: 1%;"><input id="font-size" type="range" min="50" max="300" step="1" value="100"></label>
+         </button>
+         <button class="accessButton" onclick="toggleNarrator()" id ="togglenarrator">Enable Narrator</button>
+      </div>
+   </div>
+</body>
+<script src="/views/managerFunctions.js"> </script>

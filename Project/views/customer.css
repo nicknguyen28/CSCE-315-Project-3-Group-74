@@ -1,0 +1,176 @@
+p {
+   text-align: right;
+}
+
+.button:active {
+   transform: translateY(4px);
+   color: transparent;
+   background-color: maroon;
+  
+}
+
+.menubutton{
+    width: 300px;
+    height: 200px;
+    margin: 10px 10px;
+    left: 250px;
+    top: 80px;
+    border-color:maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: transparent;
+    position: relative; 
+    background-size: 170px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+ }
+ .categorybutton{
+    width: 200px;
+    height: 100px;
+    border-color:maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+    
+    position: absolute;  
+ }
+ .gotocart{
+    width: 150px;
+    height: 50px;
+    border-color: maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+ }
+ .gotomenu{
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+}
+.tender {
+   width: 120px;
+   height: 50px;
+   border-color:maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+   font-size: 13px;
+ }
+ .accessibility{
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+}
+.cancel{
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+}
+.undo{
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+}
+.textbox{
+   text-align: center;
+   width: 145px;
+   height: 45px;
+   border-color: maroon ;
+   outline-color: maroon;
+   color: maroon;
+   border-style: solid;
+   border-width: 2px;
+   background-color: white;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.flex-container1{
+   display:flex;
+   flex-wrap: wrap;
+   width: 1300px;
+ }
+ body {
+   background-color: lightgray;
+ } 
+ .remove{
+   height: 15px;
+   position: absolute;
+   right: 20px;
+   font-size: 10px;
+ }
+
+
+.scrollarea {
+  
+   position: absolute;
+   overflow: scroll;
+ }
+ .translate{
+   position: absolute;
+   top: 140px;
+   left: 160px; 
+
+
+ }
+ .translateimg{
+   position: absolute;
+   top: 70px;
+   left: -20px; 
+   height: 170px;
+   width: 170px;
+ }
+
+ .magnify{
+   
+   width: 150px;
+   height: 50px;
+   position: absolute; 
+   left: 340px; 
+   top: 25px;
+   border-color: maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+ }
+.narrator{
+   position: absolute; 
+   left: 170px; 
+   top: 25px;
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+}
+.help{
+   position: absolute; 
+   left: 0px; 
+   top: 25px;
+   width: 150px;
+   height: 50px;
+   border-color: maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+}
+
+.logo{
+   position: absolute;
+   width: 250px;
+   height: auto;
+   left: 1200px;
+   top: -70px;
+}

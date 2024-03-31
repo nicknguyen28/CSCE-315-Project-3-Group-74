@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+   <link rel="stylesheet" type="text/css" href="/views/customer.css" id="customer_style"></link>
+   <title>Customer GUI</title>
+   <p>
+      <a href="/logout/">Logout</a>
+      <br>
+      <a href="/login/">Home Page</a>
+   </p>
+</head>
+<body>
+
+   <!-- Indicates Customer Side -->
+   <div id = "side" hidden = "hidden">Customer</div>
+
+   <!-- Creates category buttons -->
+   <% for (var i = 0; i < data.categories.length; i++) {%>
+      <!-- Creates buttons 120px below the last -->
+      <button class = "menu button categorybutton <%= i %>" onclick = "enableMenuButtons(<%= i %>)" style = "top : <%=100+ 101*i%>px;">
+         <%= data.categories[i] %>
+      </button>
+   <% } %>
+   <div class="cart delivery label" hidden="hidden"  style="color: maroon;font-size: 20px;font-family: Arial, Helvetica, sans-serif;top:100px;left:20px;position:absolute;">Delivery</div>
+   <div class = "cart googlemap" id="googleMap" style="width:700px;height:500px;left:10px;top:150px;" hidden="hidden"></div>
+
+   <script>
+   function myMap() {
+   var mapProp= {
+      center:new google.maps.LatLng(30.6125715,-96.3407987),
+      zoom:19.59,
+   };
+   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+   }
+   </script>
+
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQVqOwrQLl3V3CLQlg2sk2AIFqHI2xGFY&callback=myMap"></script>
+
+   <!-- Go to Cart Button -->
+   <button class = "menu misc button gotocart" style = "position: absolute; left: 340px; top: 25px;" onclick ="goToCart()">Go to Cart</button>
+   <button class = 'cart misc button tender' hidden = "hidden" id = 'tender' style = "position: absolute; left: 990px; top: 650px;" onmouseover = "narrator(event)" onclick = "goToMenu()">Checkout </button>
+   <button class = "cart misc button gotomenu" hidden = "hidden" style = "position: absolute; left: 340px; top: 25px;" onclick ="goToMenu()">Back to Menu</button>
+   
+
+   <!-- Name Input -->
+   <input class="cart misc textbox" id="custname" hidden = "hidden" style = "position: absolute; left: 510px; top: 25px;" placeholder="Insert Name">
+
+   <!-- Cancel Button -->
+   <button class = "menu misc button cancel" id = 'cancel' style = "position: absolute; left: 680px; top: 25px;"onclick = "clearOrder()">Cancel</button>
+   <button class = "cart misc button cancel" id = 'cancel' hidden = "hidden" style = "position: absolute; left: 1150px; top: 650px;" onclick = "clearOrder()">Cancel</button>
+   
+   <!-- Cancel Button -->
+   <button class = "menu misc button undo" id = 'undo' style = "position: absolute; left: 850px; top: 25px;"onclick = "undo()">Remove Last Item</button>
+   
+   <!-- Accessibility Button -->
+   <button class = "menu misc button accessibility" style = "position: absolute; left: 510px; top: 25px;"  onclick = "Accessibility()">Accessibility</button>
+   <button class = "access misc button gotomenu" hidden = "hidden" style = "position: absolute; left: 510px; top: 25px;"  onclick ="goToMenu()">Back to Menu</button>   
+   <!-- Total Box-->
+   <div class = "menu misc textbox costbox" id = "costbox" style="top: 25px; position: absolute;" >Total: $0</div>
+   <div class = "cart misc textbox costbox" hidden = "hidden" id = "costbox" style = "left:800px; top:650px; height:50px; position: absolute;">Total: $0</div>
+   <!-- Order ID Box -->
+   <div class = "menu misc textbox" id = "orderId" style="left:170px; top: 25px; position: absolute;" >Loading...</div>
+   <!-- Displays order -->
+   <div class = "scrollarea cart orderbox" id = "orderbox" hidden = "hidden" style="width:500px;height:525px;border:2px; border-color:  maroon; border-style: solid; ;top: 100px; left: 800px;  background-color: white; position: absolute;"></div>
+   <div class = "scrollarea cart removebox" id = "removebox"  hidden = "hidden" style="width:150px;height:525px; border-top:2px solid maroon; border-bottom:2px solid maroon; border-right:2px solid maroon; top: 100px; left: 1250px; background-color:white;"></div>
+   <!-- <div class = "cart currentorder" hidden="hidden" style="width:500px; height:50px; left: 800px; position: absolute; border:2px solid maroon;top: 20px; background-color: white; text-align: center;">Current Order</div> -->
+   <!--  Creates menu buttons  -->
+   <div class="flex-container1" id = "menubox">
+     
+         </div>   
+         <div class= "access misc translate" id="google_translate_element" hidden = "hidden" ></div>
+         <button class = "access misc button magnify" id = "toggletext" hidden = "hidden" onclick = "toggleFontSize()">Increase Text Size</div>
+         <button class = "access misc button narrator" id = "togglenarrator" hidden = "hidden" onclick = "toggleNarrator()">Enable Narrator</div>
+         <button class = "access misc button help" id = "help" hidden = "hidden" onclick = "callForHelp()">Click for Assistance</button>
+         <img src="https://i.ibb.co/nzy069Z/translate.png" class = "access misc translateimg" id="translateimg" hidden = "hidden">
+         <script type="text/javascript">
+         function googleTranslateElementInit() {
+           new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+         }
+         </script>
+         
+         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+         <img src="https://i.ibb.co/WKd5dL9/revslogo.png" class = "menu logo" id="logo">
+
+         </body>
+<script src="/views/functions.js"> </script>
+</html>

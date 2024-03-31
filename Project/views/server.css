@@ -1,0 +1,167 @@
+p {
+  text-align: right;
+}
+
+.menubutton{
+    width: 200px;
+    height: 100px;
+    margin: 10px 10px;
+    left: 250px;
+
+    border-color:maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+    font-size: 16px;
+
+    position: relative; 
+ }
+ .categorybutton{
+    width: 200px;
+    height: 100px;
+    margin: 10px 10px;
+    left: 20px;
+
+    border-color:maroon ;
+    outline-color: maroon;
+    background-color: white;
+    color: maroon;
+    font-size: 16px;
+    
+    position: absolute;  
+ }
+ .home{
+  width: 200px;
+  height: 100px;
+  margin: 10px 10px;
+  left: 20px;
+
+  border-color:maroon ;
+  outline-color: maroon;
+  background-color: white;
+  color: maroon;
+  font-size: 16px;
+  
+  position: absolute;  
+}
+ .flex-container1{
+   display:flex;
+   flex-wrap: wrap;
+   width: 800px;
+ }
+ .textbox{
+   position: absolute;
+   background-color: white; 
+   width:120px; 
+   height:30px;
+   border-style: solid;
+   border-width: 2px;
+
+   border-color:maroon ;
+   text-align: center;
+   color: maroon;
+   font-size: 13px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+ body {
+   background-color: lightgray;
+ } 
+ .tender {
+   width: 120px;
+   height: 50px;
+   border-color:maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+   font-size: 13px;
+ }
+ .cancel {
+   width: 120px;
+   height: 50px;
+   border-color:maroon ;
+   outline-color: maroon;
+   background-color: white;
+   color: maroon;
+   font-size: 13px;
+ }
+ .remove{
+  height: 15px;
+  position: absolute;
+  left: 15px;
+  font-size: 10px;
+  /* top: 115px; */
+
+ }
+
+.orderbox{
+  font-size: 12;
+  width:300px;
+  height:525px;
+  border:2px solid maroon;
+  top: 110px; left: 1000px;  
+  background-color: white; 
+  color: maroon;
+}
+
+.scrollarea {
+  
+  position: absolute;
+  overflow: scroll;
+}
+.accessibility{
+  top: 710px;
+  left: 35px;
+  width: 150px;
+  height: 50px;
+  border-color: maroon ;
+  outline-color: maroon;
+  background-color: white;
+  color: maroon;
+  position: relative;
+}
+
+.toggletext{
+  width: 200px;
+  height: 100px;
+  margin: 10px 10px;
+  left: 270px;
+
+  border-color:maroon ;
+  outline-color: maroon;
+  background-color: white;
+  color: maroon;
+  font-size: 16px;
+  
+  position: absolute;  
+}
+
+.togglenarrator{
+  width: 200px;
+  height: 100px;
+  margin: 10px 10px;
+  left: 520px;
+
+  border-color:maroon ;
+  outline-color: maroon;
+  background-color: white;
+  color: maroon;
+  font-size: 16px;
+  
+  position: absolute;  
+}
+
+.translate{
+  position: absolute;
+  top: 250px;
+  left: 280px; 
+
+
+}
+.translateimg{
+  position: absolute;
+  top: 170px;
+  left: 30px; 
+  height: 220px;
+  width: 220px;
+}
+
